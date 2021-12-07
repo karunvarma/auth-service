@@ -1,0 +1,27 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition : userProducer
+
+      kafka:
+        binder:
+          brokers: localhost
+          configuration:
+            key:
+              serializer: org.apache.kafka.common.serialization.StringSerializer
+          defaultBrokerPort: 9002
+
+      bindings:
+        userProducer-out-0:
+          destination: users
+
+
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+
+
+#  security.basic.enabled=false
